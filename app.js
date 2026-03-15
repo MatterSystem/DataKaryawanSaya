@@ -196,30 +196,30 @@ document.addEventListener('DOMContentLoaded', () => {
             const safeAddress = address.length > 40 ? address.substring(0, 40) + '...' : address;
             
             return `
-            <div class="employee-card" style="flex-direction: column; align-items: stretch;">
-                <div style="display: flex; gap: 16px; align-items: center; width: 100%;">
+            <div class="employee-card card-layout-col">
+                <div class="card-main-row">
                     <img src="${item.photo}" alt="${item.fullName || 'User'}" class="card-photo" onclick="window.openImage(this.src)" title="Klik untuk memperbesar">
-                    <div class="card-info" style="flex: 1;">
-                        <div class="card-name">${item.fullName || 'Nama Tidak Tersedia'} <span style="font-size: 0.8rem; font-weight: 400; color: #64748b;">${item.nik ? `(${item.nik})` : ''}</span></div>
+                    <div class="card-info">
+                        <div class="card-name">${item.fullName || 'Nama Tidak Tersedia'} <span class="card-nik">${item.nik ? `(${item.nik})` : ''}</span></div>
                         <div class="card-pos">${item.position || '-'} ${item.department ? `- ${item.department}` : ''}</div>
                         <div class="card-detail"><i class="fa-solid fa-phone"></i> ${item.phone || '-'} | <i class="fa-solid fa-envelope" style="margin-left: 5px;"></i> ${item.email || '-'}</div>
                         <div class="card-detail"><i class="fa-solid fa-location-dot"></i> ${safeAddress || '-'}</div>
                     </div>
-                    <div style="display: flex; flex-direction: column; gap: 5px;">
-                        <button class="export-btn" onclick="window.exportToDoc(${item.id})" style="background: var(--success-color); border: none; cursor: pointer; color: white; font-size: 0.85rem; padding: 6px 12px; border-radius: 6px; display: flex; align-items: center; gap: 5px; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+                    <div class="card-action-group">
+                        <button class="export-btn btn-action btn-success" onclick="window.exportToDoc(${item.id})">
                             <i class="fa-solid fa-file-word"></i> Unduh .doc
                         </button>
-                        <button class="toggle-btn" onclick="window.toggleDetails(this)" style="background: var(--background-light); border: 1px solid var(--border-color); cursor: pointer; color: var(--text-main); font-size: 0.85rem; padding: 6px 12px; border-radius: 6px; display: flex; justify-content: center; align-items: center;">
+                        <button class="toggle-btn btn-action btn-outline" onclick="window.toggleDetails(this)">
                             Detail <i class="fa-solid fa-chevron-down" style="margin-left:5px;"></i>
                         </button>
-                        <button class="delete-btn" onclick="window.deleteEmployee(${item.id})" style="background: var(--error-color); border: none; cursor: pointer; color: white; font-size: 0.85rem; padding: 6px 12px; border-radius: 6px; display: flex; justify-content: center; align-items: center; gap: 5px; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+                        <button class="delete-btn btn-action btn-danger" onclick="window.deleteEmployee(${item.id})">
                             <i class="fa-solid fa-trash"></i> Hapus
                         </button>
                     </div>
                 </div>
                 
-                <div class="card-extra-details" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--border-color); font-size: 0.85rem; color: var(--text-main);">
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+                <div class="card-extra-details" style="display: none;">
+                    <div class="details-grid-container">
                         <div><strong>NIK:</strong> ${item.ktp || '-'}</div>
                         <div><strong>No KK:</strong> ${item.kk || '-'}</div>
                         <div><strong>TTL:</strong> ${item.dob || '-'}</div>
