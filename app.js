@@ -281,85 +281,95 @@ document.addEventListener('DOMContentLoaded', () => {
                 <meta charset='utf-8'>
                 <title>Data Karyawan - \${employee.fullName || 'Tanpa Nama'}</title>
                 <style>
-                    body { font-family: 'Arial', sans-serif; font-size: 11pt; }
-                    h2 { text-align: center; color: #1e3a8a; border-bottom: 2px solid #1e3a8a; padding-bottom: 10px; }
-                    .header-container { text-align: center; margin-bottom: 20px; }
-                    h3 { color: #1e40af; background-color: #f1f5f9; padding: 5px; border-left: 4px solid #1e40af; margin-top: 20px;}
-                    table { border-collapse: collapse; width: 100%; margin-bottom: 15px; }
-                    th, td { border: 1px solid #cbd5e1; padding: 8px; text-align: left; vertical-align: top; }
-                    td.label { font-weight: bold; width: 35%; background-color: #f8fafc; }
+                    body { font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; font-size: 10.5pt; color: #1e293b; background-color: #ffffff; line-height: 1.5; }
+                    .header-container { text-align: center; margin-bottom: 30px; padding-bottom: 15px; border-bottom: 2px solid #2563eb; }
+                    .company-name { font-size: 16pt; font-weight: bold; color: #0f172a; margin-bottom: 5px; letter-spacing: 0.5px; }
+                    .report-title { font-size: 20pt; color: #2563eb; font-weight: 800; margin: 0; text-transform: uppercase; letter-spacing: 1px;}
+                    .report-subtitle { font-size: 11pt; color: #64748b; margin-top: 5px; }
+                    
+                    h3 { font-size: 12pt; color: #ffffff; background-color: #2563eb; padding: 8px 12px; margin-top: 25px; margin-bottom: 10px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px;}
+                    
+                    table { border-collapse: collapse; width: 100%; margin-bottom: 20px; border: 1px solid #e2e8f0; page-break-inside: avoid; }
+                    th, td { border: 1px solid #e2e8f0; padding: 10px 12px; text-align: left; vertical-align: top; }
+                    td.label { font-weight: 600; width: 35%; background-color: #f8fafc; color: #334155; border-right: 2px solid #e2e8f0; }
+                    td.value { color: #0f172a; }
+                    
+                    .footer { text-align: right; margin-top: 40px; font-size: 9pt; color: #94a3b8; font-style: italic; border-top: 1px solid #e2e8f0; padding-top: 10px;}
                 </style>
             </head>
             <body>
                 <div class="header-container">
-                    <h2>Profil Data Karyawan</h2>
+                    <div class="company-name">DATA MANAJEMEN SDM</div>
+                    <div class="report-title">PROFIL KARYAWAN</div>
+                    <div class="report-subtitle">Dokumen Rahasia & Internal</div>
                 </div>
                 
                 <h3>1. Data Pribadi dan Identitas</h3>
                 <table>
-                    <tr><td class="label">Nama Lengkap</td><td>${employee.fullName || '-'}</td></tr>
-                    <tr><td class="label">Nama Panggilan</td><td>${employee.nickname || '-'}</td></tr>
-                    <tr><td class="label">NIK (Karyawan)</td><td>${employee.nik || '-'}</td></tr>
-                    <tr><td class="label">Nomor KTP</td><td>${employee.ktp || '-'}</td></tr>
-                    <tr><td class="label">Nomor KK</td><td>${employee.kk || '-'}</td></tr>
-                    <tr><td class="label">NPWP</td><td>${employee.npwp || '-'}</td></tr>
-                    <tr><td class="label">BPJS (Kes/TK)</td><td>${employee.bpjs || '-'}</td></tr>
-                    <tr><td class="label">Alamat Lengkap</td><td>${employee.address || '-'}</td></tr>
-                    <tr><td class="label">No. Handphone</td><td>${employee.phone || '-'}</td></tr>
-                    <tr><td class="label">Email Pribadi</td><td>${employee.email || '-'}</td></tr>
-                    <tr><td class="label">Tanggal Lahir</td><td>${employee.dob || '-'}</td></tr>
-                    <tr><td class="label">Jenis Kelamin</td><td>${employee.gender || '-'}</td></tr>
-                    <tr><td class="label">Status Pernikahan</td><td>${employee.maritalStatus || '-'}</td></tr>
-                    <tr><td class="label">Kewarganegaraan</td><td>${employee.nationality || '-'}</td></tr>
-                    <tr><td class="label">Kontak Darurat</td><td>${employee.emergencyName || '-'} (${employee.emergencyRel || '-'}) - ${employee.emergencyPhone || '-'}</td></tr>
+                    <tr><td class="label">Nama Lengkap</td><td class="value">${employee.fullName || '-'}</td></tr>
+                    <tr><td class="label">Nama Panggilan</td><td class="value">${employee.nickname || '-'}</td></tr>
+                    <tr><td class="label">NIK (Karyawan)</td><td class="value">${employee.nik || '-'}</td></tr>
+                    <tr><td class="label">Nomor KTP</td><td class="value">${employee.ktp || '-'}</td></tr>
+                    <tr><td class="label">Nomor KK</td><td class="value">${employee.kk || '-'}</td></tr>
+                    <tr><td class="label">NPWP</td><td class="value">${employee.npwp || '-'}</td></tr>
+                    <tr><td class="label">BPJS (Kes/TK)</td><td class="value">${employee.bpjs || '-'}</td></tr>
+                    <tr><td class="label">Alamat Lengkap</td><td class="value">${employee.address || '-'}</td></tr>
+                    <tr><td class="label">No. Handphone</td><td class="value">${employee.phone || '-'}</td></tr>
+                    <tr><td class="label">Email Pribadi</td><td class="value">${employee.email || '-'}</td></tr>
+                    <tr><td class="label">Tanggal Lahir</td><td class="value">${employee.dob || '-'}</td></tr>
+                    <tr><td class="label">Jenis Kelamin</td><td class="value">${employee.gender || '-'}</td></tr>
+                    <tr><td class="label">Status Pernikahan</td><td class="value">${employee.maritalStatus || '-'}</td></tr>
+                    <tr><td class="label">Kewarganegaraan</td><td class="value">${employee.nationality || '-'}</td></tr>
+                    <tr><td class="label">Kontak Darurat</td><td class="value">${employee.emergencyName || '-'} (${employee.emergencyRel || '-'}) - ${employee.emergencyPhone || '-'}</td></tr>
                 </table>
 
                 <h3>2. Data Pekerjaan dan Kontrak</h3>
                 <table>
-                    <tr><td class="label">Jabatan</td><td>${employee.position || '-'}</td></tr>
-                    <tr><td class="label">Departemen/Divisi</td><td>${employee.department || '-'}</td></tr>
-                    <tr><td class="label">Cost Center</td><td>${employee.costCenter || '-'}</td></tr>
-                    <tr><td class="label">Status Pegawai</td><td>${employee.employmentStatus || '-'}</td></tr>
-                    <tr><td class="label">Tanggal Mulai</td><td>${employee.hireDate || '-'}</td></tr>
-                    <tr><td class="label">Tanggal Permanen</td><td>${employee.permanentDate || '-'}</td></tr>
-                    <tr><td class="label">Akhir Kontrak</td><td>${employee.contractEnd || '-'}</td></tr>
-                    <tr><td class="label">Atasan Langsung</td><td>${employee.supervisor || '-'}</td></tr>
-                    <tr><td class="label">Lokasi Kerja</td><td>${employee.workLocation || '-'}</td></tr>
+                    <tr><td class="label">Jabatan</td><td class="value">${employee.position || '-'}</td></tr>
+                    <tr><td class="label">Departemen/Divisi</td><td class="value">${employee.department || '-'}</td></tr>
+                    <tr><td class="label">Cost Center</td><td class="value">${employee.costCenter || '-'}</td></tr>
+                    <tr><td class="label">Status Pegawai</td><td class="value">${employee.employmentStatus || '-'}</td></tr>
+                    <tr><td class="label">Tanggal Mulai</td><td class="value">${employee.hireDate || '-'}</td></tr>
+                    <tr><td class="label">Tanggal Permanen</td><td class="value">${employee.permanentDate || '-'}</td></tr>
+                    <tr><td class="label">Akhir Kontrak</td><td class="value">${employee.contractEnd || '-'}</td></tr>
+                    <tr><td class="label">Atasan Langsung</td><td class="value">${employee.supervisor || '-'}</td></tr>
+                    <tr><td class="label">Lokasi Kerja</td><td class="value">${employee.workLocation || '-'}</td></tr>
                 </table>
 
                 <h3>3. Data Penggajian dan Tunjangan</h3>
                 <table>
-                    <tr><td class="label">Gaji Pokok</td><td>Rp ${employee.baseSalary || '-'}</td></tr>
-                    <tr><td class="label">Tunjangan Jabatan</td><td>Rp ${employee.positionAllowance || '-'}</td></tr>
-                    <tr><td class="label">Tunj. Makan/Transport</td><td>Rp ${employee.mealAllowance || '-'}</td></tr>
-                    <tr><td class="label">Bank & Rekening</td><td>${employee.bankName || '-'} - ${employee.bankAccount || '-'}</td></tr>
-                    <tr><td class="label">Potongan PPh 21</td><td>Rp ${employee.taxDeduction || '-'}</td></tr>
-                    <tr><td class="label">Potongan BPJS</td><td>Rp ${employee.bpjsDeduction || '-'}</td></tr>
-                    <tr><td class="label">Potongan Pinjaman</td><td>Rp ${employee.loanDeduction || '-'}</td></tr>
+                    <tr><td class="label">Gaji Pokok</td><td class="value">Rp ${employee.baseSalary || '-'}</td></tr>
+                    <tr><td class="label">Tunjangan Jabatan</td><td class="value">Rp ${employee.positionAllowance || '-'}</td></tr>
+                    <tr><td class="label">Tunj. Makan/Transport</td><td class="value">Rp ${employee.mealAllowance || '-'}</td></tr>
+                    <tr><td class="label">Bank & Rekening</td><td class="value">${employee.bankName || '-'} - ${employee.bankAccount || '-'}</td></tr>
+                    <tr><td class="label">Potongan PPh 21</td><td class="value">Rp ${employee.taxDeduction || '-'}</td></tr>
+                    <tr><td class="label">Potongan BPJS</td><td class="value">Rp ${employee.bpjsDeduction || '-'}</td></tr>
+                    <tr><td class="label">Potongan Pinjaman</td><td class="value">Rp ${employee.loanDeduction || '-'}</td></tr>
                 </table>
 
                 <h3>4. Data Kehadiran</h3>
                 <table>
-                    <tr><td class="label">Sisa Cuti Tahunan</td><td>${employee.leaveBalance || '-'} Hari</td></tr>
-                    <tr><td class="label">Cuti Sakit</td><td>${employee.sickLeave || '-'} Hari</td></tr>
-                    <tr><td class="label">Izin Tidak Masuk</td><td>${employee.unpaidLeave || '-'} Hari</td></tr>
-                    <tr><td class="label">Cuti Hamil</td><td>${employee.maternityLeave || '-'} Hari</td></tr>
+                    <tr><td class="label">Sisa Cuti Tahunan</td><td class="value">${employee.leaveBalance || '-'} Hari</td></tr>
+                    <tr><td class="label">Cuti Sakit</td><td class="value">${employee.sickLeave || '-'} Hari</td></tr>
+                    <tr><td class="label">Izin Tidak Masuk</td><td class="value">${employee.unpaidLeave || '-'} Hari</td></tr>
+                    <tr><td class="label">Cuti Hamil</td><td class="value">${employee.maternityLeave || '-'} Hari</td></tr>
                 </table>
 
                 <h3>5. Data Kinerja & Pengembangan</h3>
                 <table>
-                    <tr><td class="label">Skor KPI/Evaluasi</td><td>${employee.kpiScore || '-'}</td></tr>
-                    <tr><td class="label">Riwayat Karier</td><td>${employee.careerHistory || '-'}</td></tr>
-                    <tr><td class="label">Pelatihan/Sertifikasi</td><td>${employee.trainingHistory || '-'}</td></tr>
+                    <tr><td class="label">Skor KPI/Evaluasi</td><td class="value">${employee.kpiScore || '-'}</td></tr>
+                    <tr><td class="label">Riwayat Karier</td><td class="value">${employee.careerHistory || '-'}</td></tr>
+                    <tr><td class="label">Pelatihan/Sertifikasi</td><td class="value">${employee.trainingHistory || '-'}</td></tr>
                 </table>
 
                 <h3>6. Data Administrasi Hukum</h3>
                 <table>
-                    <tr><td class="label">Catatan Disipliner</td><td>${employee.disciplinaryRecords || '-'}</td></tr>
+                    <tr><td class="label">Catatan Disipliner</td><td class="value">${employee.disciplinaryRecords || '-'}</td></tr>
                 </table>
                 
-                <br>
-                <p style="text-align: right; color: #64748b; font-size: 9pt;">Dicetak pada: ${new Date().toLocaleString('id-ID')}</p>
+                <div class="footer">
+                    Dicetak secara otomatis dari Sistem HRIS pada: <strong>${new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</strong>
+                </div>
             </body>
             </html>
         `;
