@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Data Karyawan | Premium Portal</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="input">
+                <i class="fa-solid fa-pen-to-square"></i> Input
+            </button>
+            <button class="tab-btn" data-tab="history">
+                <i class="fa-solid fa-clock-rotate-left"></i> Riwayat
+            </button>
+        </nav>
+
+        <div id="inputSection" class="tab-content active">
+            <h1>Data Karyawan</h1>
+            <p class="subtitle">Silakan lengkapi formulir di bawah ini dengan data yang benar.</p>
+            
+            <form id="employeeForm">
+                <div class="photo-upload-container">
+                    <label for="photoInput" class="photo-preview" id="photoPreview">
+                        <i class="fa-solid fa-camera"></i>
+                    </label>
+                    <input type="file" id="photoInput" accept="image/*">
+                    <label for="photoInput" class="custom-file-upload">
+                        <i class="fa-solid fa-upload"></i> Unggah Foto
+                    </label>
+                    <p class="subtitle" style="margin-bottom: 0;">Ambil dari galeri atau kamera</p>
+                </div>
+
+                <!-- SECTION 1: DATA PRIBADI DAN IDENTITAS -->
+                <details class="form-section" open>
+                    <summary>1. Data Pribadi dan Identitas (Master Data)</summary>
+                    <div class="section-content">
+                        <div class="form-group">
+                            <label for="fullName">Nama Lengkap Sesuai KTP <span class="required">(Wajib)</span></label>
+                            <input type="text" id="fullName" placeholder="Contoh: Budi Santoso" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nickname">Nama Panggilan <span class="optional">(Opsional)</span></label>
+                            <input type="text" id="nickname" placeholder="Contoh: Budi">
+                        </div>
+                        <div class="form-group">
+                            <label for="nik">Nomor Induk Karyawan <span class="optional">(Opsional)</span></label>
+                            <input type="text" id="nik" placeholder="Contoh: EMP-2026-001">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="ktp">Nomor KTP <span class="optional">(Opsional)</span></label>
+                                <input type="text" id="ktp" placeholder="16 digit NIK KTP">
+                            </div>
+                            <div class="form-group half">
+                                <label for="kk">Nomor KK <span class="optional">(Opsional)</span></label>
+                                <input type="text" id="kk" placeholder="16 digit No KK">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="npwp">NPWP <span class="optional">(Opsional)</span></label>
+                                <input type="text" id="npwp" placeholder="Nomor Pokok Wajib Pajak">
+                            </div>
+                            <div class="form-group half">
+                                <label for="bpjs">BPJS (Kesehatan/TK) <span class="optional">(Opsional)</span></label>
+                                <input type="text" id="bpjs" placeholder="Nomor BPJS">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Alamat Rumah Lengkap <span class="required">(Wajib)</span></label>
+                            <textarea id="address" rows="3" placeholder="Jl. Merdeka No. 123, Jakarta" required></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="phone">Nomor Telepon Pribadi <span class="required">(Wajib)</span></label>
+                                <input type="tel" id="phone" placeholder="0812-xxxx-xxxx" required>
+                            </div>
+                            <div class="form-group half">
+                                <label for="email">Email Pribadi <span class="required">(Wajib)</span></label>
+                                <input type="email" id="email" placeholder="budi@email.com" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="dob">Tanggal Lahir <span class="optional">(Opsional)</span></label>
+                                <input type="date" id="dob">
+                            </div>
+                            <div class="form-group half">
+                                <label for="gender">Jenis Kelamin <span class="optional">(Opsional)</span></label>
+                                <select id="gender" class="form-select">
+                                    <option value="">Pilih...</option>
+                                    <option value="Laki-laki">Laki-laki</option>
+                                    <option value="Perempuan">Perempuan</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="maritalStatus">Status Pernikahan <span class="optional">(Opsional)</span></label>
+                                <select id="maritalStatus" class="form-select">
+                                    <option value="">Pilih...</option>
+                                    <option value="Belum Menikah">Belum Menikah</option>
+                                    <option value="Menikah">Menikah</option>
+                                    <option value="Cerai">Cerai</option>
+                                </select>
+                            </div>
+                            <div class="form-group half">
+                                <label for="nationality">Kewarganegaraan <span class="optional">(Opsional)</span></label>
+                                <input type="text" id="nationality" placeholder="WNI/WNA">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Informasi Darurat <span class="optional">(Opsional)</span></label>
+                            <div class="form-row">
+                                <input type="text" id="emergencyName" placeholder="Nama Kontak" class="half">
+                                <input type="text" id="emergencyRel" placeholder="Hubungan" class="half">
+                                <input type="tel" id="emergencyPhone" placeholder="No. Telepon" class="half">
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- SECTION 2: DATA PEKERJAAN DAN KONTRAK -->
+                <details class="form-section">
+                    <summary>2. Data Pekerjaan dan Kontrak</summary>
+                    <div class="section-content">
+                        <div class="form-group">
+                            <label for="position">Jabatan <span class="required">(Wajib)</span></label>
+                            <input type="text" id="position" placeholder="Contoh: Software Engineer" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="department">Divisi / Departemen <span class="optional">(Opsional)</span></label>
+                                <input type="text" id="department" placeholder="Contoh: IT">
+                            </div>
+                            <div class="form-group half">
+                                <label for="costCenter">Pusat Biaya <span class="optional">(Opsional)</span></label>
+                                <input type="text" id="costCenter" placeholder="Kode Cost Center">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="employmentStatus">Status Kepegawaian <span class="optional">(Opsional)</span></label>
+                            <select id="employmentStatus" class="form-select">
+                                <option value="">Pilih Status...</option>
+                                <option value="Tetap">Karyawan Tetap</option>
+                                <option value="Kontrak">Kontrak (PKWT)</option>
+                                <option value="Paruh Waktu">Paruh Waktu</option>
+                                <option value="Internship">Internship / Magang</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group third">
+                                <label for="hireDate">Mulai Kerja <span class="optional">(Opsional)</span></label>
+                                <input type="date" id="hireDate">
+                            </div>
+                            <div class="form-group third">
+                                <label for="permanentDate">Tgl Permanen <span class="optional">(Opsional)</span></label>
+                                <input type="date" id="permanentDate">
+                            </div>
+                            <div class="form-group third">
+                                <label for="contractEnd">Akhir Kontrak <span class="optional">(Opsional)</span></label>
+                                <input type="date" id="contractEnd">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="supervisor">Nama Atasan <span class="optional">(Opsional)</span></label>
+                                <input type="text" id="supervisor" placeholder="Nama Atasan">
+                            </div>
+                            <div class="form-group half">
+                                <label for="workLocation">Lokasi Kerja <span class="optional">(Opsional)</span></label>
+                                <input type="text" id="workLocation" placeholder="Contoh: HO Jakarta">
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- SECTION 3: DATA PENGGAJIAN DAN TUNJANGAN -->
+                <details class="form-section">
+                    <summary>3. Data Penggajian dan Tunjangan</summary>
+                    <div class="section-content">
+                        <div class="form-row">
+                            <div class="form-group third">
+                                <label for="baseSalary">Gaji Pokok <span class="optional">(Opsional)</span></label>
+                                <input type="number" id="baseSalary" placeholder="Rp.">
+                            </div>
+                            <div class="form-group third">
+                                <label for="positionAllowance">Tunjangan Jabatan <span class="optional">(Opsional)</span></label>
+                                <input type="number" id="positionAllowance" placeholder="Rp.">
+                            </div>
+                            <div class="form-group third">
+                                <label for="mealAllowance">Uang Makan <span class="optional">(Opsional)</span></label>
+                                <input type="number" id="mealAllowance" placeholder="Rp.">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="bankName">Nama Bank <span class="optional">(Opsional)</span></label>
+                                <input type="text" id="bankName" placeholder="Contoh: BCA">
+                            </div>
+                            <div class="form-group half">
+                                <label for="bankAccount">Nomor Rekening <span class="optional">(Opsional)</span></label>
+                                <input type="text" id="bankAccount" placeholder="Nomor Rekening">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Potongan & Lembur <span class="optional">(Opsional)</span></label>
+                            <div class="form-row">
+                                <input type="number" id="taxDeduction" placeholder="Potongan PPh 21 (Rp)" class="third">
+                                <input type="number" id="bpjsDeduction" placeholder="Potongan BPJS (Rp)" class="third">
+                                <input type="number" id="loanDeduction" placeholder="Pinjaman (Rp)" class="third">
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- SECTION 4: DATA KEHADIRAN -->
+                <details class="form-section">
+                    <summary>4. Data Kehadiran dan Manajemen Waktu</summary>
+                    <div class="section-content">
+                        <div class="form-row">
+                            <div class="form-group quart">
+                                <label for="leaveBalance">Sisa Cuti <span class="optional">(Opsional)</span></label>
+                                <input type="number" id="leaveBalance" placeholder="Hari">
+                            </div>
+                            <div class="form-group quart">
+                                <label for="sickLeave">Cuti Sakit <span class="optional">(Opsional)</span></label>
+                                <input type="number" id="sickLeave" placeholder="Hari">
+                            </div>
+                            <div class="form-group quart">
+                                <label for="unpaidLeave">Izin <span class="optional">(Opsional)</span></label>
+                                <input type="number" id="unpaidLeave" placeholder="Hari">
+                            </div>
+                            <div class="form-group quart">
+                                <label for="maternityLeave">Cuti Hamil <span class="optional">(Opsional)</span></label>
+                                <input type="number" id="maternityLeave" placeholder="Hari">
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- SECTION 5: DATA KINERJA & PENGEMBANGAN -->
+                <details class="form-section">
+                    <summary>5. Data Kinerja dan Pengembangan (SDM)</summary>
+                    <div class="section-content">
+                        <div class="form-group">
+                            <label for="kpiScore">Hasil KPI / Nilai Evaluasi <span class="optional">(Opsional)</span></label>
+                            <input type="number" id="kpiScore" placeholder="0-100">
+                        </div>
+                        <div class="form-group">
+                            <label for="careerHistory">Riwayat Karier <span class="optional">(Opsional)</span></label>
+                            <textarea id="careerHistory" rows="2" placeholder="Catatan promosi atau mutasi"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="trainingHistory">Pelatihan / Sertifikasi <span class="optional">(Opsional)</span></label>
+                            <textarea id="trainingHistory" rows="2" placeholder="Riwayat edukasi dan sertifikat"></textarea>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- SECTION 6: DATA ADMINISTRASI & HUKUM -->
+                <details class="form-section">
+                    <summary>6. Data Administrasi dan Dokumen Hukum</summary>
+                    <div class="section-content">
+                        <div class="form-group">
+                            <label for="disciplinaryRecords">Catatan Disipliner <span class="optional">(Opsional)</span></label>
+                            <textarea id="disciplinaryRecords" rows="2" placeholder="Surat Peringatan atau Penghargaan"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Unggah Dokumen <span class="optional">(Opsional)</span></label>
+                            <input type="file" id="documentUploads" multiple accept=".pdf,.png,.jpg,.jpeg">
+                            <p class="subtitle" style="text-align: left; margin-top: 5px; font-size: 0.8rem;">Bisa berupa KTP, KK, Ijazah, CV, atau Kontrak (PDF/Image)</p>
+                        </div>
+                    </div>
+                </details>
+
+                <button type="submit" id="submitBtn">
+                    Simpan Data Karyawan <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+
+        <div id="historySection" class="tab-content">
+            <h1>Riwayat Data</h1>
+            <p class="subtitle">Daftar karyawan yang telah tersimpan di sistem.</p>
+            
+            <div class="search-container">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="searchInput" placeholder="Cari nama atau jabatan...">
+            </div>
+
+            <div id="historyList" class="history-list">
+                <!-- Data will be loaded here -->
+                <div class="empty-state">
+                    <i class="fa-solid fa-folder-open"></i>
+                    <p>Belum ada data tersimpan.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast">Data berhasil disimpan!</div>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
